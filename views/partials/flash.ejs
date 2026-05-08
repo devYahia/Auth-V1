@@ -1,0 +1,10 @@
+<% if (messages && messages.success && messages.success.length) { %>
+  <div class="alert alert-ok" style="display:block;margin-bottom:24px">
+    <%= messages.success.join(', ') %>
+  </div>
+<% } %>
+<% if (messages && messages.error && messages.error.length) { %>
+  <div class="alert alert-err" style="display:block;margin-bottom:24px">
+    <%= messages.error.join(', ') %>
+  </div>
+<% } %>

@@ -1,0 +1,210 @@
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link
+  href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+  rel="stylesheet"
+/>
+<style>
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111;
+    --card: #161616;
+    --card-h: #1a1a1a;
+    --inp: #0f0f0f;
+    --brd: rgba(255, 255, 255, 0.06);
+    --brd-h: rgba(255, 255, 255, 0.12);
+    --brd-f: rgba(192, 163, 110, 0.4);
+    --t1: #f5f5f5;
+    --t2: #a0a0a0;
+    --t3: #666;
+    --ac: #c0a36e;
+    --ac-g: rgba(192, 163, 110, 0.15);
+    --err: #e05252;
+    --ok: #4ade80;
+    --r: 12px;
+    --tr: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  body {
+    font-family: "Inter", sans-serif;
+    background: var(--bg);
+    color: var(--t1);
+    min-height: 100vh;
+  }
+  body::before {
+    content: "";
+    position: fixed;
+    inset: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(
+      circle at 30% 20%,
+      rgba(192, 163, 110, 0.03) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
+    z-index: 0;
+  }
+  .nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 0 40px;
+    height: 72px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(10, 10, 10, 0.8);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--brd);
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    text-decoration: none;
+  }
+  .nav-logo {
+    width: 36px;
+    height: 36px;
+    border-radius: 8px;
+    background: linear-gradient(135deg, var(--ac), #8b7340);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    color: #0a0a0a;
+  }
+  .nav-name {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--t1);
+  }
+  .main {
+    position: relative;
+    z-index: 1;
+    margin: 0 auto;
+    padding: 120px 24px 80px;
+  }
+  .back {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: var(--t3);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: 20px;
+    transition: var(--tr);
+  }
+  .back:hover {
+    color: var(--ac);
+  }
+  @media (max-width: 768px) {
+    .main {
+      padding: 100px 16px 60px;
+    }
+  }
+  .fcard {
+    background: var(--card);
+    border: 1px solid var(--brd);
+    border-radius: var(--r);
+    padding: 36px;
+  }
+  .fg {
+    margin-bottom: 24px;
+  }
+  .fl {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--t2);
+    margin-bottom: 8px;
+  }
+  .fi {
+    width: 100%;
+    padding: 12px 16px;
+    background: var(--inp);
+    border: 1px solid var(--brd);
+    border-radius: 8px;
+    color: var(--t1);
+    font-family: inherit;
+    font-size: 14px;
+    outline: none;
+    transition: var(--tr);
+  }
+  .fi::placeholder {
+    color: var(--t3);
+  }
+  .fi:focus {
+    border-color: var(--brd-f);
+    box-shadow: 0 0 0 3px var(--ac-g);
+  }
+  .fh {
+    font-size: 12px;
+    color: var(--t3);
+    margin-top: 6px;
+  }
+  .div {
+    height: 1px;
+    background: var(--brd);
+    margin: 28px 0;
+  }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 14px 24px;
+    border: none;
+    border-radius: 8px;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--tr);
+    background: linear-gradient(135deg, var(--ac), #8b7340);
+    color: #0a0a0a;
+  }
+  .btn:hover {
+    opacity: 0.9;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(192, 163, 110, 0.25);
+  }
+  .alert {
+    padding: 14px 18px;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    margin-bottom: 24px;
+    display: none;
+  }
+  .alert-ok {
+    background: rgba(74, 222, 128, 0.1);
+    border: 1px solid rgba(74, 222, 128, 0.2);
+    color: var(--ok);
+  }
+  .alert-err {
+    background: rgba(224, 82, 82, 0.1);
+    border: 1px solid rgba(224, 82, 82, 0.2);
+    color: var(--err);
+  }
+  @media (max-width: 768px) {
+    .nav {
+      padding: 0 20px;
+    }
+    .fcard {
+      padding: 24px;
+    }
+  }
+</style>

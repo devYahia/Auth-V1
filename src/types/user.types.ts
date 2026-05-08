@@ -1,7 +1,15 @@
-interface UserCredential {
-  id: string;
-  Email: string;
-  hashedPassword: string;
+interface User {
+  firstName: string;
+  secondName: string;
+  email: string;
+  phoneNumber: string;
 }
 
-export type { UserCredential };
+interface UserUpdate {
+  firstName?: string;
+  secondName?: string;
+  email?: string;
+  phoneNumber?: string;
+}
+
+export type { User, UserUpdate };
