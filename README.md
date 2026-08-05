@@ -6,9 +6,10 @@ validation, flash messaging and search.
 
 Built as part of the Cat Reloaded backend track.
 
-> **Note on the repository name.** This project started as an authentication exercise and
-> was later reworked into a user-management dashboard. There is no login or password
-> handling in the current code - see [Limitations](#limitations).
+> **History.** This project started as an authentication exercise (the repository was
+> originally called `Auth-V1`) and was later reworked into a user-management dashboard.
+> There is no login or password handling in the current code - see
+> [Limitations](#limitations).
 
 ## Stack
 
@@ -96,8 +97,8 @@ User
 Requires Node.js 18+ and a MongoDB instance.
 
 ```bash
-git clone https://github.com/devYahia/Auth-V1.git
-cd Auth-V1
+git clone https://github.com/devYahia/user-management-dashboard.git
+cd user-management-dashboard
 npm install
 
 cp .env.example .env    # then fill in the values
@@ -145,7 +146,7 @@ views/
 Being explicit about what this project does not do, since it is a learning exercise rather
 than a production service:
 
-- **No authentication, despite the repository name.** The dashboard is completely open -
+- **No authentication of any kind.** The dashboard is completely open -
   anyone who can reach it can read, edit and delete every user. Sessions are configured,
   but only so that flash messages work; nothing signs in and no route is guarded. The
   `User` model has no password field.
